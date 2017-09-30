@@ -39,14 +39,12 @@ uint8_t rx_buffer[2 * (SPM_PAGESIZE + 1)];
 void (*main_entry_point)(void) = 0x0000;
 
 inline void init() {
-	cli();
+	cli(); //turn off interrupts
 	//setup SYNC LEDs as outputs
 	DDRE |= (1<<Y_LED);
 	DDRC |= (1<<R_LED);
 
-	// Insert here code for:
-	// - Setting up the LEDs output port
-	// - Setting up the switches input port
+
 }
 
 inline void write_status_leds(uint8_t pattern) {
@@ -64,7 +62,7 @@ inline void write_status_leds(uint8_t pattern) {
     PORTC |= (1<<Y_LED);
     PORTE |= (1<<R_LED);
   }    
-	// Insert here code for outputing an 8 bits value to LEDs.
+	
 }
 
 inline uint8_t bootloader_active() {
@@ -87,6 +85,7 @@ inline void write_buffer_to_flash() {
 		uint16_t w = *p++;
 		w |= (*p++) << 8;
 		boot_page_fill(page + i, w);
+		
 	}
 
 	boot_page_write(page);
@@ -191,6 +190,7 @@ inline void midi_rx_loop() {
 						write_status_leds(2);
 					}
                     // Block write.
+					write_status_leds(0);
 					write_buffer_to_flash();
 					page += SPM_PAGESIZE;
 					++progress_counter;
@@ -224,10 +224,10 @@ int main(void) {
 */
 	init();
 	if (bootloader_active()) {
-		_delay_ms(2000);
+		_delay_ms(1000);
 		midi_rx_loop();
 		write_status_leds(0);
-		_delay_ms(2000);
+		_delay_ms(1000);
 	}
     main_entry_point();
 }
