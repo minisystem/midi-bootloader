@@ -186,7 +186,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00007800      0x31a
+.text           0x00007800      0x2fa
  *(.vectors)
  .vectors       0x00007800       0xb4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.0.98/gcc/dev/atmega328pb/avr5/crtatmega328pb.o
                 0x00007800                __vector_default
@@ -291,13 +291,13 @@ END GROUP
                 0x000078ec                . = ALIGN (0x2)
  *(.text.*)
  .text.startup.main
-                0x000078ec      0x22a main.o
+                0x000078ec      0x20a main.o
                 0x000078ec                main
-                0x00007b16                . = ALIGN (0x2)
+                0x00007af6                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00007b16        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
-                0x00007b16                _exit
-                0x00007b16                exit
+ .fini9         0x00007af6        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+                0x00007af6                _exit
+                0x00007af6                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -316,11 +316,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00007b16        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+ .fini0         0x00007af6        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00007b1a                _etext = .
+                0x00007afa                _etext = .
 
-.data           0x00800100        0x6 load address 0x00007b1a
+.data           0x00800100        0x6 load address 0x00007afa
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -349,8 +349,8 @@ END GROUP
  COMMON         0x0080010c      0x102 main.o
                 0x0080010c                rx_buffer
                 0x0080020e                PROVIDE (__bss_end, .)
-                0x00007b1a                __data_load_start = LOADADDR (.data)
-                0x00007b20                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00007afa                __data_load_start = LOADADDR (.data)
+                0x00007b00                __data_load_end = (__data_load_start + SIZEOF (.data))
 
 .noinit         0x0080020e        0x0
                 0x0080020e                PROVIDE (__noinit_start, .)

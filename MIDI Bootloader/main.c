@@ -19,7 +19,7 @@
 // block, in increasing order. Random access flashing is not supported!
 
 //python command for converting hex to sysex:
-///c/Python27/python.exe tools/hex2sysex/hex2sysex.py --syx --page_size 64 -o 880.syx /e/Documents/Atmel\ Studio/TR-808-firmware/TR-808-firmware/Release/TR-808-firmware.hex
+// /c/Python27/python.exe tools/hex2sysex/hex2sysex.py --syx --page_size 64 -o 880.syx /e/Documents/Atmel\ Studio/TR-808-firmware/TR-808-firmware/Release/TR-808-firmware.hex
 
 #define F_CPU 16000000U
 
@@ -96,7 +96,8 @@ inline void write_buffer_to_flash() {
 
 static const uint8_t sysex_header[] = {
 	0xf0,  // <SysEx>
-	0x00, 0x21, 0x02,  // Manufacturer ID for Mutable instruments. NEED TO CHANGE THIS
+	//0x00, 0x21, 0x02,  // Manufacturer ID for Mutable instruments. - this mfr_id was used on the first pre-production prototypes - Brendan/Bart/Jason/Alex/Byron
+	0x00, 0x79, 0x08,
 	0x00, 0x7f,  // Product ID for "any other project".
 };
 
