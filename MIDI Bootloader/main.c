@@ -96,8 +96,8 @@ inline void write_buffer_to_flash() {
 
 static const uint8_t sysex_header[] = {
 	0xf0,  // <SysEx>
-	//0x00, 0x21, 0x02,  // Manufacturer ID for Mutable instruments. - this mfr_id was used on the first pre-production prototypes - Brendan/Bart/Jason/Alex/Byron
-	0x00, 0x79, 0x08,
+	//0x00, 0x21, 0x02,  // Manufacturer ID for Mutable instruments. - this mfr_id was used on the first pre-production prototypes - Brendan/Bart/Jason/Alex/Byron/Eric
+	0x00, 0x79, 0x08, //System80 spoofed Manufacturer ID
 	0x00, 0x7f,  // Product ID for "any other project".
 };
 
